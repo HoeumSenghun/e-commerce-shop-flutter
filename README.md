@@ -1,16 +1,37 @@
-# flutter_ecommerce
+# Flutter Ecommerce Database
 
-A new Flutter project.
+## Tables Overview
+- **profiles**: User profile information
+- **categories**: Product categories
+- **products**: Product catalog
+- **cart_items**: Shopping cart items
+- **orders**: Customer orders
+- **order_items**: Individual items in orders
 
-## Getting Started
+## Key Relationships
+- Users (auth.users) → profiles (1:1)
+- Users → cart_items (1:many)
+- Users → orders (1:many)
+- Categories → products (1:many)
+- Products → cart_items (1:many)
+- Orders → order_items (1:many)
 
-This project is a starting point for a Flutter application.
+## Setup Instructions
+1. Run schema.sql to create tables
+2. Run policies.sql to set up security
+3. Run sample_data.sql to add test data
 
-A few resources to get you started if this is your first Flutter project:
+## Backup Instructions
+- Export data regularly using Supabase dashboard
+- Keep schema files updated when making changes
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+flutter_ecommerce/
+├── database/
+│   ├── schema.sql              # Table definitions
+│   ├── policies.sql            # RLS policies
+│   ├── sample_data.sql         # Sample data
+│   ├── complete_backup.sql     # Full backup
+│   └── README.md              # Database documentation
+├── lib/
+└── ...
